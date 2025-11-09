@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsArrowLeft, BsSearch } from "react-icons/bs";
 import { AiFillEnvironment } from "react-icons/ai";
+import { RiDashboardFill } from "react-icons/ri";
 
 
 const Navbar = () => {
@@ -49,8 +50,8 @@ const Navbar = () => {
           />
           <h1
             className={`text-white origin-left font-medium text-2xl duration-300 ${
-              !open && "scale-0" 
-            }` }>
+              !open && "scale-0"
+            }`}>
             Tailwind
           </h1>
         </div>
@@ -71,12 +72,24 @@ const Navbar = () => {
             />
           )}
         </div>
-        <ul className="pt-2">
+        <ul className="pt-2 ">
           {Menus.map((menu, index) => (
             <>
-              <li key={index} className="text-gray-300 te"> 
-                <span>{menu.title }</span>
-            </li>
+              <li
+                key={index}
+                className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-blue-700 rounded-md ${
+                  menu.spacing ? "mt-9" : ""
+                }`}>
+                <span className="text-2xl block float-left">
+                  <RiDashboardFill />
+                </span>
+                <span
+                  className={`text-base font-medium flex-1 ${
+                    !open ? "hidden" : ""
+                  }`}>
+                  {menu.title}
+                </span>
+              </li>
             </>
           ))}
         </ul>
