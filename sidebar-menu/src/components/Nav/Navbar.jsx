@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { BsArrowLeft, BsSearch } from "react-icons/bs";
+import { BsArrowLeft, BsSearch , BsChevronCompactDown  } from "react-icons/bs";
 import { AiFillEnvironment } from "react-icons/ai";
 import { RiDashboardFill } from "react-icons/ri";
 
 
 const Navbar = () => {
   const [open, setOpen] = useState(true);
+  const [submenu, setSubmenu] = useState(false);
 
   const Menus = [
     { title: "Dashboard" },
@@ -89,6 +90,16 @@ const Navbar = () => {
                   }`}>
                   {menu.title}
                 </span>
+                {menu.submenu && <BsChevronCompactDown onClick={() => { }} />}
+                {menu.submenu && (
+                  <ul>
+                    {menu.submenuItems.map((submenuItems, index) => (
+                      <li key={index}>
+                        {submenuItems.title}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             </>
           ))}
