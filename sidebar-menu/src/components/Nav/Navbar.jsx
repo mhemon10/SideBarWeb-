@@ -6,6 +6,29 @@ import { AiFillEnvironment } from "react-icons/ai";
 const Navbar = () => {
   const [open, setOpen] = useState(true);
 
+  const Menus = [
+    { title: "Dashboard" },
+    { title: "Pages" },
+    { title: "Media", spacing: true },
+    {
+      title: "Projects",
+      submenu: true,
+      submenuItems: [
+        { title: "Submenu 1" },
+        { title: "Submenu 2" },
+        { title: "Submenu 3" },
+        
+      ],
+    },
+    
+    { title: "Analytic" },
+    { title: "Inbox" },
+    { title: "Profile", spacing: true },
+    { title: "Setting" },
+    { title: "Logout" },
+    
+  ];
+
   return (
     <div className="flex">
       <div
@@ -48,6 +71,15 @@ const Navbar = () => {
             />
           )}
         </div>
+        <ul className="pt-2">
+          {Menus.map((menu, index) => (
+            <>
+              <li key={index} className="text-gray-300 te"> 
+                <span>{menu.title }</span>
+            </li>
+            </>
+          ))}
+        </ul>
       </div>
 
       <div className="p-7 flex-1">
