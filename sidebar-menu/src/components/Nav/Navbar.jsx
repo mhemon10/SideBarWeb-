@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BsArrowLeft } from "react-icons/bs";
+import { AiFillEnvironment } from "react-icons/ai";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(true);
@@ -9,14 +11,16 @@ const Navbar = () => {
       <div
         className={`bg-indigo-950 h-screen p-5 pt-8 relative transition-all duration-300 ${
           open ? "w-72" : "w-20"
-        }`}
-      >
+        }`}>
         <BsArrowLeft
           className={`bg-white text-indigo-950 text-3xl rounded-full absolute -right-3 top-9 border border-indigo-950 cursor-pointer transition-transform duration-300 ${
             !open && "rotate-180"
           }`}
           onClick={() => setOpen(!open)}
         />
+        <div className="inline-flex">
+          <AiFillEnvironment className={`bg-amber-200 text-4xl rounded cursor-pointer float-left mr-2 duration-200  ${open && "rotate-360"}`} />
+        </div>
       </div>
 
       <div className="p-7 flex-1">
